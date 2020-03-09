@@ -1,0 +1,28 @@
+{
+  "name": "Ezio",
+  "version": "1.0.0",
+  "description": "Senior assassins, university-scale.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node server.js",
+    "build": "next build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BUUPE/Ezio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BUUPE/Ezio/issues"
+  },
+  "homepage": "https://github.com/BUUPE/Ezio#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "next": "^9.2.2",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0"
+  }
+}
