@@ -3,12 +3,19 @@
 import React from 'react';
 import FacebookLogin from 'react-facebook-login';
 import Link from 'next/link';
+import Router from 'next/router'
 
 class Index extends React.Component {
   // This method gets called when the Facebook login gets resolved.
   facebookAuthCallback(resp) {
     if ("accessToken" in resp) { // Then the user must have successfully logged in.
       alert("Successfully logged in. Welcome, " + resp.name + ".");
+
+      // TODO: Write some cookies so the user page can GET the appropriate info.
+      const {pathname} = Router;
+      if (pathname == '/' ){
+        Router.push('/user');
+      }
     } else { // The user failed to log in.
       alert("Login unsuccessful. Please try again.");
     }
