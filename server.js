@@ -15,7 +15,9 @@ app.prepare()
     return handle(req, res)
   })
 
-  server.listen(PORT, (err) => {
+  // Listen on the Heroku-assigned port.
+  // If one wasn't assigned, listen on PORT.
+  server.listen((process.env.PORT || PORT), (err) => {
     if (err) throw err
     console.log('> Ready on http://localhost:' + PORT)
   })
