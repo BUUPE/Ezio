@@ -4,6 +4,7 @@
   "description": "Senior assassins, university-scale.",
   "main": "index.js",
   "scripts": {
+    "start": "node server.js",
     "dev": "node server.js",
     "build": "next build",
     "test": "echo \"Error: no test specified\" && exit 1"
