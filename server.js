@@ -1,3 +1,4 @@
+const sslRedirect = require('heroku-ssl-redirect');
 const express = require('express')
 const next = require('next')
 
@@ -10,6 +11,8 @@ const handle = app.getRequestHandler()
 app.prepare()
 .then(() => {
   const server = express()
+
+  server.use(sslRedirect()) // Ensure Heroku traffic gets served over HTTPS.
 
   server.get('*', (req, res) => {
     return handle(req, res)
