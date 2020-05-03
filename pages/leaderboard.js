@@ -18,6 +18,56 @@ import {
 
 
 export default function Leaderboard() {
+
+  const playerData = [ // this will come from the DB
+    {
+      rank: 1,
+      name: "Warren",
+      numKilled: 2
+    },
+    {
+      rank: 2,
+      name: "John",
+      numKilled: 2
+    },
+    {
+      rank: 3,
+      name: "Keshav",
+      numKilled: 2
+    },
+    {
+      rank: 99,
+      name: "testuser",
+      numKilled: 0
+    },
+    {
+      rank: 99,
+      name: "testuser",
+      numKilled: 0
+    },
+    {
+      rank: 99,
+      name: "testuser",
+      numKilled: 0
+    },
+    {
+      rank: 99,
+      name: "testuser",
+      numKilled: 0
+    },
+    {
+      rank: 99,
+      name: "testuser",
+      numKilled: 0
+    },
+    {
+      rank: 99,
+      name: "testuser",
+      numKilled: 0
+    },
+  ];
+
+
     return (
       <>
       <div className="content">
@@ -46,12 +96,19 @@ export default function Leaderboard() {
                   </tr>
                   </thead>
                   <tbody>
+
+                  {playerData.map( player => {
+                    return (<div>{player.name}</div>);
+                  })}
+
+
                   <tr>
                     <td>1</td>
                     <td>Niger</td>
                     <td>Oud-Turnhout</td>
                     <td className="text-right">$36,738</td>
                   </tr>
+
                   <tr>
                     <td>2</td>
                     <td>Curaçao</td>
