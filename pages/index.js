@@ -30,7 +30,17 @@ class Index extends React.Component {
     return (
       <div>
         <div class="container">
-          <p>Welcome, assassin.</p>
+
+          <br/><br/><br/><br/>
+
+          <div class="row">
+            <img src="/img/logo.png" className="mx-auto d-block" width="100px" alt="Assassins Logo" />
+          </div>
+
+          <div class="row">
+            <p className="mx-auto d-block" >Welcome, assassin.</p>
+          </div>
+
           <div class="row">
             <div class="col-sm-4"></div>
             <div class="col-sm-2">
@@ -40,6 +50,7 @@ class Index extends React.Component {
                 </Button>
               </Link>
             </div>
+
             <div class="col-sm-2">
               <FacebookLogin
                 appId="559046621373474"
@@ -50,6 +61,7 @@ class Index extends React.Component {
                 )}
               />
             </div>
+
             <div class="col-sm-4"></div>
           </div>
         </div>
