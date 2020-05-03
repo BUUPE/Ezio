@@ -3,13 +3,19 @@ import Link from 'next/link';
 import React from "react";
 import {
   Card,
+  Button,
   CardHeader,
   CardBody,
   CardTitle,
   Table,
   Row,
-  Col
+  Col,
+  Input,
+  InputGroup,
+  InputGroupAddon,
+  InputGroupText
 } from "reactstrap";
+
 
 export default function Leaderboard() {
     return (
@@ -19,57 +25,65 @@ export default function Leaderboard() {
           <Col md="12">
             <Card>
               <CardHeader>
-                <CardTitle tag="h4">Simple Table</CardTitle>
+                <CardTitle tag="h4"><b>LeaderBoard</b></CardTitle>
               </CardHeader>
               <CardBody>
+                    <>
+                      <InputGroup>
+                        <InputGroupAddon addonType="prepend">
+                          <InputGroupText><i className="nc-icon nc-single-02"></i></InputGroupText>
+                        </InputGroupAddon>
+                        <Input type="text" placeholder="Seach Player Status" />
+                      </InputGroup>
+                    </>
                 <Table responsive>
                   <thead className="text-primary">
                   <tr>
+                    <th>Rank</th>
                     <th>Name</th>
-                    <th>Country</th>
-                    <th>City</th>
-                    <th className="text-right">Salary</th>
+                    <th>Killed</th>
+                    <th className="text-right">Money</th>
                   </tr>
                   </thead>
                   <tbody>
                   <tr>
-                    <td>Dakota Rice</td>
+                    <td>1</td>
                     <td>Niger</td>
                     <td>Oud-Turnhout</td>
                     <td className="text-right">$36,738</td>
                   </tr>
                   <tr>
-                    <td>Minerva Hooper</td>
+                    <td>2</td>
                     <td>Curaçao</td>
                     <td>Sinaai-Waas</td>
                     <td className="text-right">$23,789</td>
                   </tr>
                   <tr>
-                    <td>Sage Rodriguez</td>
+                    <td>3</td>
                     <td>Netherlands</td>
                     <td>Baileux</td>
                     <td className="text-right">$56,142</td>
                   </tr>
                   <tr>
-                    <td>Philip Chaney</td>
+                    <td>4</td>
                     <td>Korea, South</td>
                     <td>Overland Park</td>
                     <td className="text-right">$38,735</td>
                   </tr>
                   <tr>
-                    <td>Doris Greene</td>
+                    <td>5</td>
                     <td>Malawi</td>
                     <td>Feldkirchen in Kärnten</td>
                     <td className="text-right">$63,542</td>
                   </tr>
                   <tr>
-                    <td>Mason Porter</td>
+                    <td>6</td>
                     <td>Chile</td>
                     <td>Gloucester</td>
                     <td className="text-right">$78,615</td>
                   </tr>
                   <tr>
-                    <td>Jon Porter</td>
+                    <td>7</td>
                     <td>Portugal</td>
                     <td>Gloucester</td>
                     <td className="text-right">$98,615</td>
@@ -82,12 +96,13 @@ export default function Leaderboard() {
         </Row>
 
         <Link href="/">
-          <a>Back</a>
+          <Button color="success"><a>Back to MainPage</a></Button>
         </Link>
       </div>
       </>
     );
 }
+
 
 
 // export default function Leaderboard() {
@@ -110,7 +125,7 @@ export default function Leaderboard() {
 //       </div>
 //
       <Link href="/">
-        <a>Back</a>
+        <Button color="success"><a>Success</a></Button>
       </Link>
 //     </div>
 //   );
