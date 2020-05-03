@@ -24,6 +24,7 @@
     "express": "^4.17.1",
     "heroku-ssl-redirect": "0.0.4",
     "next": "^9.2.2",
+    "paper-dashboard-react": "^1.1.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-facebook-login": "^4.1.1"

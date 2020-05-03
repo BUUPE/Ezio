@@ -1,18 +1,117 @@
 import Link from 'next/link';
 
-export default function Leaderboard() {
-  return (
-    <div>
-      <p className="red-text">TODO: Public leaderboard.</p>
-      <div className="row">
-        <div className="col-sm-4">Ezio</div>
-        <div className="col-sm-4">Auditore</div>
-        <div className="col-sm-4">da Firenze</div>
-      </div>
+import React from "react";
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardTitle,
+  Table,
+  Row,
+  Col
+} from "reactstrap";
 
+export default function Leaderboard() {
+    return (
+      <>
+      <div className="content">
+        <Row>
+          <Col md="12">
+            <Card>
+              <CardHeader>
+                <CardTitle tag="h4">Simple Table</CardTitle>
+              </CardHeader>
+              <CardBody>
+                <Table responsive>
+                  <thead className="text-primary">
+                  <tr>
+                    <th>Name</th>
+                    <th>Country</th>
+                    <th>City</th>
+                    <th className="text-right">Salary</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>Dakota Rice</td>
+                    <td>Niger</td>
+                    <td>Oud-Turnhout</td>
+                    <td className="text-right">$36,738</td>
+                  </tr>
+                  <tr>
+                    <td>Minerva Hooper</td>
+                    <td>Curaçao</td>
+                    <td>Sinaai-Waas</td>
+                    <td className="text-right">$23,789</td>
+                  </tr>
+                  <tr>
+                    <td>Sage Rodriguez</td>
+                    <td>Netherlands</td>
+                    <td>Baileux</td>
+                    <td className="text-right">$56,142</td>
+                  </tr>
+                  <tr>
+                    <td>Philip Chaney</td>
+                    <td>Korea, South</td>
+                    <td>Overland Park</td>
+                    <td className="text-right">$38,735</td>
+                  </tr>
+                  <tr>
+                    <td>Doris Greene</td>
+                    <td>Malawi</td>
+                    <td>Feldkirchen in Kärnten</td>
+                    <td className="text-right">$63,542</td>
+                  </tr>
+                  <tr>
+                    <td>Mason Porter</td>
+                    <td>Chile</td>
+                    <td>Gloucester</td>
+                    <td className="text-right">$78,615</td>
+                  </tr>
+                  <tr>
+                    <td>Jon Porter</td>
+                    <td>Portugal</td>
+                    <td>Gloucester</td>
+                    <td className="text-right">$98,615</td>
+                  </tr>
+                  </tbody>
+                </Table>
+              </CardBody>
+            </Card>
+          </Col>
+        </Row>
+
+        <Link href="/">
+          <a>Back</a>
+        </Link>
+      </div>
+      </>
+    );
+}
+
+
+// export default function Leaderboard() {
+//   return (
+//     <div>
+//       <p className="red-text">TODO: Public leaderboard.</p>
+//       <div className="row">
+//         <div className="col-sm-1">Ezio</div>
+//         <div className="col-sm-1">Auditore</div>
+//         <div className="col-sm-1">da Firenze</div>
+//         <div className="col-sm-1">da Firenze</div>
+//         <div className="col-sm-1">da Firenze</div>
+//         <div className="col-sm-1">da Firenze</div>
+//         <div className="col-sm-1">da Firenze</div>
+//         <div className="col-sm-1">da Firenze</div>
+//         <div className="col-sm-1">da Firenze</div>
+//         <div className="col-sm-1">da Firenze</div>
+//         <div className="col-sm-1">da Firenze</div>
+//         <div className="col-sm-1">da Firenze</div>
+//       </div>
+//
       <Link href="/">
         <a>Back</a>
       </Link>
-    </div>
-  );
-}
+//     </div>
+//   );
+// }
