@@ -22,6 +22,7 @@
   "homepage": "https://github.com/BUUPE/Ezio#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "file-loader": "^6.0.0",
     "heroku-ssl-redirect": "0.0.4",
     "next": "^9.2.2",
     "paper-dashboard-react": "^1.1.0",
