@@ -1,9 +1,12 @@
 'use strict';
 
 import React from 'react';
-import FacebookLogin from 'react-facebook-login';
+import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 import Link from 'next/link';
 import Router from 'next/router'
+
+import { Button } from 'reactstrap';
+
 
 class Index extends React.Component {
   // This method gets called when the Facebook login gets resolved.
@@ -26,17 +29,43 @@ class Index extends React.Component {
   render() {
     return (
       <div>
-        <p>Welcome, assassin.</p>
-        <Link href="/leaderboard">
-          <a>Leaderboard Page</a>
-        </Link>
+        <div class="container">
 
-        <FacebookLogin
-          appId="559046621373474"
-          autoLoad={true}
-          fields="name,email,picture"
-          callback={this.facebookAuthCallback}
-        />
+          <br/><br/><br/><br/>
+
+          <div class="row">
+            <img src="/img/logo.png" className="mx-auto d-block" width="100px" alt="Assassins Logo" />
+          </div>
+
+          <div class="row">
+            <p className="mx-auto d-block" >Welcome, assassin.</p>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-2">
+              <Link href="/leaderboard">
+                <Button color="primary">
+                  <a>Leaderboard Page</a>
+                </Button>
+              </Link>
+            </div>
+
+            <div class="col-sm-2">
+              <FacebookLogin
+                appId="559046621373474"
+                fields="name,email,picture"
+                callback={this.facebookAuthCallback}
+                render={renderProps => (
+                  <Button color="primary" onClick={renderProps.onClick}>Login with Facebook</Button>
+                )}
+              />
+            </div>
+
+            <div class="col-sm-4"></div>
+          </div>
+        </div>
+
       </div>
     );
   }
