@@ -18,8 +18,7 @@ import {
 
 
 export default function Leaderboard() {
-
-  const playerData = [ // this will come from the DB
+var playerData = [ // this will come from the DB
     {
       rank: 1,
       name: "Warren",
@@ -68,6 +67,7 @@ export default function Leaderboard() {
   ];
 
 
+
     return (
       <>
       <div className="content">
@@ -83,82 +83,81 @@ export default function Leaderboard() {
                         <InputGroupAddon addonType="prepend">
                           <InputGroupText><i className="nc-icon nc-single-02"></i></InputGroupText>
                         </InputGroupAddon>
-                        <Input type="text" placeholder="Seach Player Status" />
+                        <Input type="text" id="myInput" placeholder="Seach Player Status" />
                       </InputGroup>
                     </>
-                <Table responsive>
+                <table class="table-responsive-sm" class="table"
+                      data-url="playerData"
+                      data-search="true"
+                      data-show-toggle="true"
+                      data-row-style="rowStyle">
                   <thead className="text-primary">
                   <tr>
                     <th>Rank</th>
                     <th>Name</th>
                     <th>Killed</th>
-                    <th className="text-right">Money</th>
                   </tr>
                   </thead>
                   <tbody>
 
                   {playerData.map( player => {
-                    return (<div>{player.name}</div>);
+                    return (
+                      <tr id={player.rank}>
+                        <td>{player.rank}</td>
+                        <td>{player.name}</td>
+                        <td>{player.numKilled}</td>
+                      </tr>
+                    );
                   })}
 
-
-                  <tr>
-                    <td>1</td>
-                    <td>Niger</td>
-                    <td>Oud-Turnhout</td>
-                    <td className="text-right">$36,738</td>
-                  </tr>
-
-                  <tr>
-                    <td>2</td>
-                    <td>Curaçao</td>
-                    <td>Sinaai-Waas</td>
-                    <td className="text-right">$23,789</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Netherlands</td>
-                    <td>Baileux</td>
-                    <td className="text-right">$56,142</td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>Korea, South</td>
-                    <td>Overland Park</td>
-                    <td className="text-right">$38,735</td>
-                  </tr>
-                  <tr>
-                    <td>5</td>
-                    <td>Malawi</td>
-                    <td>Feldkirchen in Kärnten</td>
-                    <td className="text-right">$63,542</td>
-                  </tr>
-                  <tr>
-                    <td>6</td>
-                    <td>Chile</td>
-                    <td>Gloucester</td>
-                    <td className="text-right">$78,615</td>
-                  </tr>
-                  <tr>
-                    <td>7</td>
-                    <td>Portugal</td>
-                    <td>Gloucester</td>
-                    <td className="text-right">$98,615</td>
-                  </tr>
                   </tbody>
-                </Table>
+                </table>
               </CardBody>
             </Card>
           </Col>
         </Row>
-
+        
         <Link href="/">
           <Button color="success"><a>Back to MainPage</a></Button>
         </Link>
       </div>
       </>
     );
+
+    function rowStyle(row, index) {
+      var classes = [
+        'bg-blue',
+        'bg-green',
+        'bg-orange',
+        'bg-yellow',
+        'bg-red'
+      ]
+    if (index % 1 === 0 && index / 2 < classes.length) {
+      return {
+        classes: classes[index / 2]
+      }
+    }
+    return {
+      css: {
+        color: 'blue'
+      }
+    }
+  }
+  //try to use script to do the search bar
+  <script>
+
+  </script>
+  $(document).ready(function(){
+    $("#myInput").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("#myTable tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
+  });
+
 }
+
 
 
 
