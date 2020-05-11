@@ -20,11 +20,19 @@ class User extends React.Component {
     super(props);
 
     this.state = {
-      days: "99",
-      hours: "99",
-      minutes: "99",
-      seconds: "99",
-      deadline: new Date("December 23, 2020 22:00:00"),
+      user: {
+        name: "asdf",
+        profilePicURL: "asdf"
+        target: "asdf",
+        hunter: "asdf",
+      },
+      countdown: {
+        days: "99",
+        hours: "99",
+        minutes: "99",
+        seconds: "99",
+        deadline: new Date("December 23, 2020 22:00:00")
+      }
     };
   }
 
