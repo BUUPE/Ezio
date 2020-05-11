@@ -16,6 +16,63 @@ import {
 } from "reactstrap";
 
 class User extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      days: "99",
+      hours: "99",
+      minutes: "99",
+      seconds: "99",
+      deadline: new Date("December 23, 2020 22:00:00"),
+    };
+  }
+
+
+  componentDidMount() {
+    // Run updateClock() every second.
+    this.interval = setInterval(() => this.updateClock(), 1000);
+
+  }
+
+  componentWillUnmount() {
+    // Stop the countdown if the component is unmounted.
+    clearInterval(this.interval);
+  }
+
+  getTimeRemaining(endtime) {
+    var t = Date.parse(endtime) - Date.parse(new Date());
+    var seconds = Math.floor((t / 1000) % 60);
+    var minutes = Math.floor((t / 1000 / 60) % 60);
+    var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+    var days = Math.floor((t / (1000 * 60 * 60 * 24)));
+
+    return {
+      'total': t,
+      'days': days,
+      'hours': hours,
+      'minutes': minutes,
+      'seconds': seconds
+    };
+  }
+
+  updateClock() {
+    var t = this.getTimeRemaining(this.state.deadline);
+
+    this.setState({
+      days: t.days,
+      hours: ('0' + t.hours).slice(-2),
+      minutes: ('0' + t.minutes).slice(-2),
+      seconds: ('0' + t.seconds).slice(-2)
+    });
+
+    if (t.total <= 0) {
+      // Stop the countdown when we've reached the next round.
+      clearInterval(this.interval);
+    }
+  }
+
+
   render() {
     return (
       <>
@@ -112,6 +169,20 @@ class User extends React.Component {
                       </Row>
                     </li>
                   </ul>
+
+
+                  <div>Time until the round closes:</div>
+                  <div id="clock">
+                    <div className="days">{this.state.days}</div>
+                    <div>:</div>
+                    <div className="hours">{this.state.hours}</div>
+                    <div>:</div>
+                    <div className="minutes">{this.state.minutes}</div>
+                    <div>:</div>
+                    <div className="seconds">{this.state.seconds}</div>
+                  </div>
+
+
                 </CardBody>
               </Card>
             </Col>

@@ -1,0 +1,51 @@
+#clock {
+    text-align: center;
+    margin-top: 10px;
+}
+
+#clock div {
+    display: inline-block;
+
+}
+
+.days:after,
+.hours:after,
+.minutes:after,
+.seconds:after {
+    /*font-size: 27px;*/
+    content: 'Days';
+    text-align: center;
+    position: relative;
+    /*margin: 10px 0 10px 0;*/
+    display: block;
+
+    text-transform: uppercase;
+    /*color: rgba(27, 54, 93, 0.5);*/
+    /*font-weight: 700;*/
+}
+
+.hours:after {
+    content: 'Hours';
+}
+
+.minutes:after {
+    content: 'Minutes';
+}
+
+.seconds:after {
+    content: 'Seconds';
+}
+
+
+/* Mobile */
+@media only screen and (max-width: 600px) {
+    .hours:after,
+    .minutes:after,
+    .seconds:after {
+        font-size: 16px;
+    }
+
+    #clock div {
+        font-size: 64px;
+    }
+}
