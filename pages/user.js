@@ -21,6 +21,8 @@ class User extends React.Component {
       <>
         <div className="content">
           <Row>
+            <Col></Col>
+            
             <Col md="4">
               <Card className="card-user">
                 <div className="image">
@@ -41,10 +43,7 @@ class User extends React.Component {
                     </a>
                     <p className="description">@keshavm02</p>
                   </div>
-                  <p className="description text-center">
-                    "I like the way you work it <br />
-                    No diggity <br />I wanna bag it up"
-                  </p>
+                  
                 </CardBody>
                 <CardFooter>
                   <hr />
@@ -86,14 +85,7 @@ class User extends React.Component {
                           </span>
                         </Col>
                         <Col className="text-right" md="3" xs="3">
-                          <Button
-                            className="btn-round btn-icon"
-                            color="success"
-                            outline
-                            size="sm"
-                          >
-                            <i className="fa fa-envelope" />
-                          </Button>
+                          
                         </Col>
                       </Row>
                     </li>
@@ -115,14 +107,7 @@ class User extends React.Component {
                           </span>
                         </Col>
                         <Col className="text-right" md="3" xs="3">
-                          <Button
-                            className="btn-round btn-icon"
-                            color="success"
-                            outline
-                            size="sm"
-                          >
-                            <i className="fa fa-envelope" />
-                          </Button>
+                          
                         </Col>
                       </Row>
                     </li>
@@ -130,6 +115,8 @@ class User extends React.Component {
                 </CardBody>
               </Card>
             </Col>
+
+            <Col></Col>
             {/* <Col md="8">
               <Card className="card-user">
                 <CardHeader>
