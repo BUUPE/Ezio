@@ -96,47 +96,20 @@ var playerData = [ // this will come from the DB
                     <th>Rank</th>
                     <th>Name</th>
                     <th>Killed</th>
-                    <th className="text-right">Money</th>
                   </tr>
                   </thead>
                   <tbody>
 
-                  <tr>
-                    <td>
-                      {playerData.map( player => {
-                        return (<div>{player.rank}</div>);
-                        })}
-                    </td>
-                    <td>
-                      {playerData.map( player => {
-                      return (<div>{player.name}</div>);
-                      })}
-                    </td>
-                    <td>
-                      {playerData.map( player => {
-                      return (<div>{player.numKilled}</div>);
-                      })}
-                    </td>
-                    <td className="text-right"></td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Curaçao</td>
-                    <td>Sinaai-Waas</td>
-                    <td className="text-right"></td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Netherlands</td>
-                    <td>Baileux</td>
-                    <td className="text-right"></td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>Korea, South</td>
-                    <td>Overland Park</td>
-                    <td className="text-right"></td>
-                  </tr>
+                  {playerData.map( player => {
+                    return (
+                      <tr id={player.rank}>
+                        <td>{player.rank}</td>
+                        <td>{player.name}</td>
+                        <td>{player.numKilled}</td>
+                      </tr>
+                    );
+                  })}
+
                   </tbody>
                 </table>
               </CardBody>
