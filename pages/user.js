@@ -21,10 +21,10 @@ class User extends React.Component {
 
     this.state = {
       user: {
-        name: "asdf",
-        profilePicURL: "asdf"
-        target: "asdf",
-        hunter: "asdf",
+        name: "Keshav Maheshwari",
+        profilePicURL: "http://www.keshavmaheshwari.us/images/me.jpg",
+        target: "Warren",
+        assassin: "John",
       },
       countdown: {
         days: "99",
@@ -68,10 +68,12 @@ class User extends React.Component {
     var t = this.getTimeRemaining(this.state.deadline);
 
     this.setState({
-      days: t.days,
-      hours: ('0' + t.hours).slice(-2),
-      minutes: ('0' + t.minutes).slice(-2),
-      seconds: ('0' + t.seconds).slice(-2)
+      countdown:{
+        days: t.days,
+        hours: ('0' + t.hours).slice(-2),
+        minutes: ('0' + t.minutes).slice(-2),
+        seconds: ('0' + t.seconds).slice(-2)
+      }
     });
 
     if (t.total <= 0) {
@@ -104,9 +106,8 @@ class User extends React.Component {
                         className="avatar border-gray"
                         src="/img/keshav.jpg"
                       />
-                      <h5 className="title">Keshav Maheshwari</h5>
+                      <h5 className="title">{ this.state.user.name }</h5>
                     </a>
-                    <p className="description">@keshavm02</p>
                   </div>
                   
                 </CardBody>
@@ -144,7 +145,7 @@ class User extends React.Component {
                           </div>
                         </Col>
                         <Col md="7" xs="7">
-                          John Chai <br />
+                          {this.state.user.target} <br />
                           <span className="text-success">
                             <small>Target</small>
                           </span>
@@ -166,9 +167,9 @@ class User extends React.Component {
                           </div>
                         </Col>
                         <Col className="col-ms-7" xs="7">
-                          Warren Partridge <br />
+                          {this.state.user.assassin} <br />
                           <span className="text-danger">
-                            <small>Assasin</small>
+                            <small>Assassin</small>
                           </span>
                         </Col>
                         <Col className="text-right" md="3" xs="3">
@@ -182,13 +183,13 @@ class User extends React.Component {
 
                   <div>Time until the round closes:</div>
                   <div id="clock">
-                    <div className="days">{this.state.days}</div>
+                    <div className="days">{this.state.countdown.days}</div>
                     <div>:</div>
-                    <div className="hours">{this.state.hours}</div>
+                    <div className="hours">{this.state.countdown.hours}</div>
                     <div>:</div>
-                    <div className="minutes">{this.state.minutes}</div>
+                    <div className="minutes">{this.state.countdown.minutes}</div>
                     <div>:</div>
-                    <div className="seconds">{this.state.seconds}</div>
+                    <div className="seconds">{this.state.countdown.seconds}</div>
                   </div>
 
 
