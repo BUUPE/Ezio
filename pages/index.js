@@ -17,6 +17,7 @@ class Index extends React.Component {
       // TODO: Write some cookies so the user page can GET the appropriate info.
       const {pathname} = Router;
       if (pathname == '/' ){
+        // TODO: Store all user info in SQL db
         Router.push('/user');
       }
     } else { // The user failed to log in.

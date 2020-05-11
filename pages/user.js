@@ -79,7 +79,7 @@ class User extends React.Component {
         <div className="content">
           <Row>
             <Col></Col>
-            
+
             <Col md="4">
               <Card className="card-user">
                 <div className="image">
@@ -167,6 +167,7 @@ class User extends React.Component {
                           
                         </Col>
                       </Row>
+                      <Button color="danger">REPORT</Button>{''}
                     </li>
                   </ul>
 
