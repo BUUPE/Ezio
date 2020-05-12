@@ -5,23 +5,21 @@
 
 #clock div {
     display: inline-block;
-
+    font-size: 1.714em; /*Same as h1*/
 }
 
 .days:after,
 .hours:after,
 .minutes:after,
 .seconds:after {
-    /*font-size: 27px;*/
+    font-size: 15px;
     content: 'Days';
     text-align: center;
     position: relative;
-    /*margin: 10px 0 10px 0;*/
+    margin: 10px 5px 10px 5px;
     display: block;
 
     text-transform: uppercase;
-    /*color: rgba(27, 54, 93, 0.5);*/
-    /*font-weight: 700;*/
 }
 
 .hours:after {

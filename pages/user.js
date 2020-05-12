@@ -174,10 +174,15 @@ class User extends React.Component {
                       <Button color="danger">REPORT</Button>{''}
                     </li>
                   </ul>
+                </CardBody>
+              </Card>
 
-
-                  <div>Time until the round closes:</div>
-                  <div id="clock">
+              <Card>
+                <CardHeader>
+                  <CardTitle tag="h4">Time left in the round:</CardTitle>
+                </CardHeader>
+                <CardBody>
+                  <div id="clock" className="d-flex justify-content-center">
                     <div className="days">{this.state.countdown.days}</div>
                     <div>:</div>
                     <div className="hours">{this.state.countdown.hours}</div>
@@ -186,8 +191,6 @@ class User extends React.Component {
                     <div>:</div>
                     <div className="seconds">{this.state.countdown.seconds}</div>
                   </div>
-
-
                 </CardBody>
               </Card>
             </Col>
