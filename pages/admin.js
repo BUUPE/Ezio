@@ -2,10 +2,6 @@ import Link from 'next/link';
 import React from "react";
 
 import {
-  Modal,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
   Card,
   Button,
   CardHeader,
@@ -86,26 +82,6 @@ class Admin extends React.Component {
     });
   }
   
-  // MyVerticallyCenteredModal() {
-  //   const [smShow, setSmShow] = useState(false);
-  //   return (
-  //     <>
-  //     <Modal
-  //       size="sm"
-  //       show={smShow}
-  //       onHide={() => setSmShow(false)}
-  //       aria-labelledby="example-modal-sizes-title-sm"
-  //     >
-  //       <Modal.Header closeButton>
-  //         <Modal.Title id="example-modal-sizes-title-sm">
-  //           Small Modal
-  //         </Modal.Title>
-  //       </Modal.Header>
-  //       <Modal.Body>...</Modal.Body>
-  //     </Modal>
-  //     </>
-  //   )
-  // }
     render() {
       return (
         <>
@@ -170,23 +146,8 @@ class Admin extends React.Component {
             <Button color="success"><a>Back to MainPage</a></Button>
           </Link>
         </div>
-
-        <Modal isOpen={true}>
-        <ModalHeader>Modal title</ModalHeader>
-        <ModalBody>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </ModalBody>
-        <ModalFooter>
-          <Button color="primary" >Do Something</Button>{' '}
-          <Button color="secondary" >Cancel</Button>
-        </ModalFooter>
-      </Modal>
-
-
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <form class="form-popup" id="myForm" hidden={this.state.formIsHidden}>
+        
+              <form class="form-popup" id="myForm" hidden={this.state.formIsHidden}>
                 <div class="form-check">
                       <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="alive" checked></input>
                       <label class="form-check-label" for="gridRadios1">
@@ -200,20 +161,17 @@ class Admin extends React.Component {
                       </label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="reported" disabled></input>
+                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="reported"></input>
                       <label class="form-check-label" for="gridRadios3">
                         Reported
                       </label>
+                      <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Report Description</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Invalid Kill Method"></textarea>
+                      </div>
                     </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Submit</button>
-            </div>
-        </div>
-      </div>
-      </>
+              </form>
+        </>
       );
     }
 }
