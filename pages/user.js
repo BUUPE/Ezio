@@ -120,8 +120,6 @@ class User extends React.Component {
                     </a>
                   </div>
                   
-                </CardBody>
-                <CardFooter>
                   <hr />
                   <div className="button-container">
                     <Row>
@@ -135,7 +133,7 @@ class User extends React.Component {
                       
                     </Row>
                   </div>
-                </CardFooter>
+                </CardBody>
               </Card>
 
               <Card>
