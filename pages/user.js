@@ -16,11 +16,80 @@ import {
 } from "reactstrap";
 
 class User extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      user: {
+        name: "Keshav Maheshwari",
+        profilePicURL: "http://www.keshavmaheshwari.us/images/me.jpg",
+        target: "Warren",
+        assassin: "John",
+      },
+      countdown: {
+        days: "99",
+        hours: "99",
+        minutes: "99",
+        seconds: "99",
+        deadline: new Date("December 23, 2020 22:00:00")
+      }
+    };
+  }
+
+
+  componentDidMount() {
+    // Run updateClock() every second.
+    this.interval = setInterval(() => this.updateClock(), 1000);
+
+  }
+
+  componentWillUnmount() {
+    // Stop the countdown if the component is unmounted.
+    clearInterval(this.interval);
+  }
+
+  getTimeRemaining(endtime) {
+    var t = Date.parse(endtime) - Date.parse(new Date());
+    var seconds = Math.floor((t / 1000) % 60);
+    var minutes = Math.floor((t / 1000 / 60) % 60);
+    var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+    var days = Math.floor((t / (1000 * 60 * 60 * 24)));
+
+    return {
+      'total': t,
+      'days': days,
+      'hours': hours,
+      'minutes': minutes,
+      'seconds': seconds
+    };
+  }
+
+  updateClock() {
+    var t = this.getTimeRemaining(this.state.deadline);
+
+    this.setState({
+      countdown:{
+        days: t.days,
+        hours: ('0' + t.hours).slice(-2),
+        minutes: ('0' + t.minutes).slice(-2),
+        seconds: ('0' + t.seconds).slice(-2)
+      }
+    });
+
+    if (t.total <= 0) {
+      // Stop the countdown when we've reached the next round.
+      clearInterval(this.interval);
+    }
+  }
+
+
   render() {
     return (
       <>
         <div className="content">
           <Row>
+            <Col></Col>
+
             <Col md="4">
               <Card className="card-user">
                 <div className="image">
@@ -37,14 +106,10 @@ class User extends React.Component {
                         className="avatar border-gray"
                         src="/img/keshav.jpg"
                       />
-                      <h5 className="title">Keshav Maheshwari</h5>
+                      <h5 className="title">{ this.state.user.name }</h5>
                     </a>
-                    <p className="description">@keshavm02</p>
                   </div>
-                  <p className="description text-center">
-                    "I like the way you work it <br />
-                    No diggity <br />I wanna bag it up"
-                  </p>
+                  
                 </CardBody>
                 <CardFooter>
                   <hr />
@@ -80,20 +145,13 @@ class User extends React.Component {
                           </div>
                         </Col>
                         <Col md="7" xs="7">
-                          John Chai <br />
+                          {this.state.user.target} <br />
                           <span className="text-success">
                             <small>Target</small>
                           </span>
                         </Col>
                         <Col className="text-right" md="3" xs="3">
-                          <Button
-                            className="btn-round btn-icon"
-                            color="success"
-                            outline
-                            size="sm"
-                          >
-                            <i className="fa fa-envelope" />
-                          </Button>
+                          
                         </Col>
                       </Row>
                     </li>
@@ -109,27 +167,37 @@ class User extends React.Component {
                           </div>
                         </Col>
                         <Col className="col-ms-7" xs="7">
-                          Warren Partridge <br />
+                          {this.state.user.assassin} <br />
                           <span className="text-danger">
-                            <small>Assasin</small>
+                            <small>Assassin</small>
                           </span>
                         </Col>
                         <Col className="text-right" md="3" xs="3">
-                          <Button
-                            className="btn-round btn-icon"
-                            color="success"
-                            outline
-                            size="sm"
-                          >
-                            <i className="fa fa-envelope" />
-                          </Button>
+                          
                         </Col>
                       </Row>
+                      <Button color="danger">REPORT</Button>{''}
                     </li>
                   </ul>
+
+
+                  <div>Time until the round closes:</div>
+                  <div id="clock">
+                    <div className="days">{this.state.countdown.days}</div>
+                    <div>:</div>
+                    <div className="hours">{this.state.countdown.hours}</div>
+                    <div>:</div>
+                    <div className="minutes">{this.state.countdown.minutes}</div>
+                    <div>:</div>
+                    <div className="seconds">{this.state.countdown.seconds}</div>
+                  </div>
+
+
                 </CardBody>
               </Card>
             </Col>
+
+            <Col></Col>
             {/* <Col md="8">
               <Card className="card-user">
                 <CardHeader>
