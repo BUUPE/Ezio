@@ -68,7 +68,7 @@ class User extends React.Component {
     var t = this.getTimeRemaining(this.state.countdown.deadline);
 
     this.setState({
-      countdown:{
+      countdown: {
         days: t.days,
         hours: ('0' + t.hours).slice(-2),
         minutes: ('0' + t.minutes).slice(-2),
@@ -93,10 +93,6 @@ class User extends React.Component {
             <Col md="4">
               <Card className="card-user">
                 <div className="image">
-                  <img
-                    alt="..."
-                    src="/img/damir-bosnjak.jpg"
-                  />
                 </div>
                 <CardBody>
                   <div className="author">
