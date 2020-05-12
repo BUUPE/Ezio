@@ -22,6 +22,9 @@ class User extends React.Component {
         profilePicURL: "http://www.keshavmaheshwari.us/images/me.jpg",
         target: "Warren Partridge",
         assassin: "John Chai",
+        killcount: 2,
+        rank: 13,
+        totalRanks: 1337
       },
       countdown: {
         days: "99",
@@ -110,14 +113,14 @@ class User extends React.Component {
                 </div>
                 <CardBody>
                   <div className="author">
-                    <a href="#pablo" onClick={e => e.preventDefault()}>
+                    <div>
                       <img
                         alt="..."
                         className="avatar border-gray"
-                        src="/img/keshav.jpg"
+                        src="http://www.keshavmaheshwari.us/images/me.jpg"
                       />
                       <h5 className="title">{this.state.user.name}</h5>
-                    </a>
+                    </div>
                   </div>
                   
                   <hr />
@@ -126,8 +129,15 @@ class User extends React.Component {
                       
                       <Col className="ml-auto mr-auto" lg="4" md="6" xs="6">
                         <h5>
-                          2 <br />
+                          {this.state.user.killcount} <br />
                           <small>Assassinated</small>
+                        </h5>
+                      </Col>
+
+                      <Col className="ml-auto mr-auto" lg="4" md="6" xs="6">
+                        <h5>
+                          {this.state.user.rank} / {this.state.user.totalRanks}<br />
+                          <small>Overall Rank</small>
                         </h5>
                       </Col>
                       
@@ -205,7 +215,7 @@ class User extends React.Component {
                         </Col>
                       </Row>
 
-                      <div className="d-flex justify-content-center">
+                      <div className="button-box d-flex justify-content-center">
                         <Button color="info">I'M OUT</Button>
                         <Button color="danger">REPORT</Button>
                       </div>
