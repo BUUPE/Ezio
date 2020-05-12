@@ -65,7 +65,7 @@ class User extends React.Component {
   }
 
   updateClock() {
-    var t = this.getTimeRemaining(this.state.deadline);
+    var t = this.getTimeRemaining(this.state.countdown.deadline);
 
     this.setState({
       countdown:{
@@ -119,7 +119,7 @@ class User extends React.Component {
                       <Col className="ml-auto mr-auto" lg="4" md="6" xs="6">
                         <h5>
                           2 <br />
-                          <small>Assasinated</small>
+                          <small>Assassinated</small>
                         </h5>
                       </Col>
                       
