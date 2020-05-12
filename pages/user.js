@@ -101,7 +101,7 @@ class User extends React.Component {
                         className="avatar border-gray"
                         src="/img/keshav.jpg"
                       />
-                      <h5 className="title">{ this.state.user.name }</h5>
+                      <h5 className="title">{this.state.user.name}</h5>
                     </a>
                   </div>
                   
@@ -171,7 +171,10 @@ class User extends React.Component {
                           
                         </Col>
                       </Row>
-                      <Button color="danger">REPORT</Button>{''}
+
+                      <Col><Button color="info">I'M OUT</Button>
+                      <Button color="danger">REPORT</Button>{''}</Col>
+                      
                     </li>
                   </ul>
 
