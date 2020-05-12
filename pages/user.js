@@ -23,8 +23,8 @@ class User extends React.Component {
       user: {
         name: "Keshav Maheshwari",
         profilePicURL: "http://www.keshavmaheshwari.us/images/me.jpg",
-        target: "Warren",
-        assassin: "John",
+        target: "Warren Partridge",
+        assassin: "John Chai",
       },
       countdown: {
         days: "99",
