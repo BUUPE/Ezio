@@ -1,16 +1,13 @@
 import React from "react";
-import Link from 'next/link';
 
 import {
+  Alert,
   Button,
   Card,
   CardHeader,
   CardBody,
   CardFooter,
   CardTitle,
-  FormGroup,
-  Form,
-  Input,
   Row,
   Col
 } from "reactstrap";
@@ -20,7 +17,7 @@ class User extends React.Component {
     super(props);
 
     this.state = {
-      user: {
+      user: { // All this data must come from the DB.
         name: "Keshav Maheshwari",
         profilePicURL: "http://www.keshavmaheshwari.us/images/me.jpg",
         target: "Warren Partridge",
@@ -32,7 +29,10 @@ class User extends React.Component {
         minutes: "99",
         seconds: "99",
       },
-      roundDeadline: new Date("December 23, 2020 22:00:00")
+      round: {
+        deadline: new Date("December 23, 2020 22:00:00"), // This must come from the DB. We might keep a list of rounds.
+        isSafeForNextRound: true, // A user is safe for the next round if they killed someone during the current round.
+      }
     };
   }
 
@@ -64,7 +64,7 @@ class User extends React.Component {
   }
 
   updateClock() {
-    let t = this.getTimeRemaining(this.state.roundDeadline);
+    let t = this.getTimeRemaining(this.state.round.deadline);
 
     this.setState({
       countdown: {
@@ -83,6 +83,21 @@ class User extends React.Component {
 
 
   render() {
+    let nextRoundText = <Alert color="danger">
+      <div className="d-flex justify-content-center">
+        You still need to assassinate someone before the round ends... otherwise you're out.
+      </div>
+      </Alert>;
+
+    if (this.state.round.isSafeForNextRound) {
+      nextRoundText = <Alert color="success">
+        <div className="d-flex justify-content-center">
+          You're safe for the next round.
+        </div>
+      </Alert>;
+    }
+
+
     return (
       <>
         <div className="content">
@@ -122,6 +137,26 @@ class User extends React.Component {
                   </div>
                 </CardFooter>
               </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle tag="h4">Time left in the round:</CardTitle>
+                </CardHeader>
+                <CardBody>
+                  <div id="clock" className="d-flex justify-content-center">
+                    <div className="days">{this.state.countdown.days}</div>
+                    <div>:</div>
+                    <div className="hours">{this.state.countdown.hours}</div>
+                    <div>:</div>
+                    <div className="minutes">{this.state.countdown.minutes}</div>
+                    <div>:</div>
+                    <div className="seconds">{this.state.countdown.seconds}</div>
+                  </div>
+
+                  {nextRoundText}
+                </CardBody>
+              </Card>
+
               <Card>
                 <CardHeader>
                   <CardTitle tag="h4">Info</CardTitle>
@@ -172,28 +207,13 @@ class User extends React.Component {
                         </Col>
                       </Row>
 
-                      <Col><Button color="info">I'M OUT</Button>
-                      <Button color="danger">REPORT</Button>{''}</Col>
+                      <div className="d-flex justify-content-center">
+                        <Button color="info">I'M OUT</Button>
+                        <Button color="danger">REPORT</Button>
+                      </div>
                       
                     </li>
                   </ul>
-                </CardBody>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle tag="h4">Time left in the round:</CardTitle>
-                </CardHeader>
-                <CardBody>
-                  <div id="clock" className="d-flex justify-content-center">
-                    <div className="days">{this.state.countdown.days}</div>
-                    <div>:</div>
-                    <div className="hours">{this.state.countdown.hours}</div>
-                    <div>:</div>
-                    <div className="minutes">{this.state.countdown.minutes}</div>
-                    <div>:</div>
-                    <div className="seconds">{this.state.countdown.seconds}</div>
-                  </div>
                 </CardBody>
               </Card>
             </Col>
