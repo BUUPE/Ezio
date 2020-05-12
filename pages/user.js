@@ -31,11 +31,10 @@ class User extends React.Component {
         hours: "99",
         minutes: "99",
         seconds: "99",
-        deadline: new Date("December 23, 2020 22:00:00")
-      }
+      },
+      roundDeadline: new Date("December 23, 2020 22:00:00")
     };
   }
-
 
   componentDidMount() {
     // Run updateClock() every second.
@@ -49,11 +48,11 @@ class User extends React.Component {
   }
 
   getTimeRemaining(endtime) {
-    var t = Date.parse(endtime) - Date.parse(new Date());
-    var seconds = Math.floor((t / 1000) % 60);
-    var minutes = Math.floor((t / 1000 / 60) % 60);
-    var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-    var days = Math.floor((t / (1000 * 60 * 60 * 24)));
+    let t = Date.parse(endtime) - Date.parse(new Date());
+    let seconds = Math.floor((t / 1000) % 60);
+    let minutes = Math.floor((t / 1000 / 60) % 60);
+    let hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+    let days = Math.floor((t / (1000 * 60 * 60 * 24)));
 
     return {
       'total': t,
@@ -65,7 +64,7 @@ class User extends React.Component {
   }
 
   updateClock() {
-    var t = this.getTimeRemaining(this.state.countdown.deadline);
+    let t = this.getTimeRemaining(this.state.roundDeadline);
 
     this.setState({
       countdown: {
@@ -74,12 +73,12 @@ class User extends React.Component {
         minutes: ('0' + t.minutes).slice(-2),
         seconds: ('0' + t.seconds).slice(-2)
       }
-    });
+      });
 
-    if (t.total <= 0) {
-      // Stop the countdown when we've reached the next round.
-      clearInterval(this.interval);
-    }
+      if (t.total <= 0) {
+        // Stop the countdown when we've reached the next round.
+        clearInterval(this.interval);
+      }
   }
 
 
@@ -202,21 +201,3 @@ class User extends React.Component {
   }
 }
 export default User;
-
-// export default function User() {
-//   return (
-//     <div>
-//       <Card style={{width: '20rem'}}>
-//         <CardImg top src="img-src" alt="..."/>
-//         <CardBody>
-//           <CardTitle>Card title</CardTitle>
-//           <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-//           <Button color="primary">Go somewhere</Button>
-//         </CardBody>
-//       </Card>
-//       <Link href="/">
-//         <a>Back</a>
-//       </Link>
-//     </div>
-//   );
-// }
