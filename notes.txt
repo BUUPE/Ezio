@@ -1,0 +1,13 @@
+Dumping my notes here before they get lost
+
+- when you attack it sends them an agility puzzle that they have 1 min to solve, otherwise theyre "dead", and if the solve it theyre alive and can be attacked again. 
+- each subsequent attack the puzzle gets more difficult so eventually theyll get killed.
+- location data to check whether the attack is valid/close enough, but dont store it
+- alternatively use bluetooth if its reliable enough (need a method to handle people turning it off, maybe let attacks queue if bluetooth is off?)
+- this could be a game played socially distant (no need to actually touch people in order to get a kill)
+- fb login so assassins would be given targets that are within their friend groups
+- bunch people into graphs of friends with bridges, like if there are 3 clusters of friends, there will be a couple bridges where someone is given a target outside of their cluster, and when you kill someone you take their target and keep going till last man standing (and friend data is only used once at game start to calculate the target graph and then its not stored)
+- people could also be given a geofence of X square meters so they can designate a safe zone once (so if this were to be played on a college campus they could designate their room as safe so they cant be attacked there/can sleep without worrying about the game)
+- game runners can set global safe zones too
+- $1 buy in and winner takes the pot with upe taking a cut to pay for server costs and little extra for club money
+- make it a platform such that anyone could host one for their group/school, but start with BU as a proof of concept
